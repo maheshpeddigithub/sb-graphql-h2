@@ -6,7 +6,6 @@ import com.testproj.graphql.model.Author;
 import com.testproj.graphql.model.Tutorial;
 import com.testproj.graphql.repository.AuthorRepository;
 import com.testproj.graphql.repository.TutorialRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
@@ -18,31 +17,21 @@ public class Mutation implements GraphQLMutationResolver {
 	private AuthorRepository authorRepository;
 	private TutorialRepository tutorialRepository;
 
-	@Autowired
 	public Mutation(AuthorRepository authorRepository, TutorialRepository tutorialRepository) {
 		this.authorRepository = authorRepository;
 		this.tutorialRepository = tutorialRepository;
 	}
 
 	public Author createAuthor(String name, Integer age) {
-		Author author = new Author();
-		author.setName(name);
-		author.setAge(age);
-
+		Author author = Author.builder().name(name).age(age).build();
 		authorRepository.save(author);
-
 		return author;
 	}
 
 	public Tutorial createTutorial(String title, String description, Long authorId) {
-		Tutorial book = new Tutorial();
-		book.setAuthor(new Author(authorId));
-		book.setTitle(title);
-		book.setDescription(description);
-
-		tutorialRepository.save(book);
-
-		return book;
+		Tutorial tutorial = Tutorial.builder().author(new Author(authorId)).title(title).description(description).build();
+		tutorialRepository.save(tutorial);
+		return tutorial;
 	}
 
 	public boolean deleteTutorial(Long id) {

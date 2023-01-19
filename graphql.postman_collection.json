@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "aecab873-e0e4-4ce3-8599-9ebcfecfd3a0",
+		"name": "graphql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findAllAuthors",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    findAllAuthors {\n        id\n        name\n        age\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAuthor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation { \n    createAuthor( name: \"David\" age: 39) { \n        id \n        name\n        age\n        }\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAllTutorials",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    findAllTutorials {\n        id\n        title\n        description\n        author {\n            id\n            name\n            age\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTutorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation { \n    createTutorial( title: \"t2\" description: \"d2\" author : 3) { \n        id \n        title\n        description\n        author {\n                id\n                name\n                age\n            }\n        }\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTutorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation { \n    updateTutorial( id : 4 title: \"t22\" description: \"d22\") { \n        id \n        title\n        description\n        author {\n                id\n                name\n                age\n            }\n        }\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTutorial",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation { \n    deleteTutorial( id : 2)\n    }",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/apis/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"apis",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

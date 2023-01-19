@@ -40,34 +40,4 @@ kubectl delete -f k8s-sb-graphql-h2.yml <br>
 
 GraphQL PostMan collection: <br>
 ----------------------------- <br>
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"{\n  findAllAuthors{\n    id\n    name\n    age\n  }\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"mutation {\n  createAuthor(\n    name: \"John\"\n    age: 40) {\n      id\n      name\n      age\n  }\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"{\n  countAuthors\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"{\n  findAllTutorials{\n\tid\n\ttitle\n\tdescription\n\tauthor {\n        id\n        name\n        age\n    }\n  }\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"mutation {\n  createTutorial(\n\ttitle: \"t1\"\n\tdescription: \"d1\"\n\tauthor: 1) {\n      id\n      title\n\t  description\n\t  author {\n          id\n        name\n        age\n      }\n  }\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"{\n  countTutorials\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"mutation {\n  updateTutorial(\n      id: 2\n\ttitle: \"t11\"\n\tdescription: \"d11\") {\n      id\n      title\n\t  description\n\t  author {\n          id\n        name\n        age\n      }\n  }\n}","variables":{}}'
-
-curl --location --request POST '10.109.68.162:8080/apis/graphql' \
---header 'Content-Type: application/json' \
---data-raw '{"query":"mutation {\n  deleteTutorial(id: 2) \n}","variables":{}}'
+Refer graphql.postman_collection.json

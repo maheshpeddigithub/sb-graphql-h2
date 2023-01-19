@@ -1,16 +1,18 @@
 package com.testproj.graphql.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table
 public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
